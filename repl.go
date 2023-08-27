@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 )
 
 type Pokemon struct {
@@ -58,19 +59,39 @@ func startingRepl() {
 		scanner.Scan()
 		text := scanner.Text()
 
-		if text == "help" {
+		switch text {
+		case "help":
 			fmt.Println("Welcome to the Pokedex!")
 			fmt.Println("Usage: ")
 			fmt.Println()
 			fmt.Println("help: Displays a help message")
 			fmt.Println("type pokemon name to get details about it")
 			fmt.Println("exit or quit: Exit the Pokedex")
-		} else if text == "exit" || text == "quit" {
+
+		case "exit":
 			os.Exit(0)
-		} else {
+
+		default:
 			pokemonDetails, err := getPokemonDetails(text)
 			if err != nil {
 				fmt.Println("Error fetching Pokémon details:", err)
+				duration := 3 * time.Second
+
+				// Create a ticker that ticks every second
+				ticker := time.NewTicker(1 * time.Second)
+				defer ticker.Stop()
+
+				// Countdown loop
+				for remaining := duration; remaining >= 0; remaining -= time.Second {
+					// Convert the remaining duration to integer seconds
+					secondsLeft := int64(remaining / time.Second)
+
+					// Use \r to move the cursor to the beginning of the line
+					// Display the time in seconds
+					fmt.Printf("\rQuitting pokedex in: %d seconds", secondsLeft)
+					time.Sleep(1 * time.Second)
+				}
+				fmt.Println()
 				return
 			}
 
@@ -95,6 +116,41 @@ func startingRepl() {
 		}
 	}
 }
+
+// if text == "help" {
+// 	fmt.Println("Welcome to the Pokedex!")
+// 	fmt.Println("Usage: ")
+// 	fmt.Println()
+// 	fmt.Println("help: Displays a help message")
+// 	fmt.Println("type pokemon name to get details about it")
+// 	fmt.Println("exit or quit: Exit the Pokedex")
+// } else if text == "exit" || text == "quit" {
+// 	os.Exit(0)
+// } else {
+// 	pokemonDetails, err := getPokemonDetails(text)
+// 	if err != nil {
+// 		fmt.Println("Error fetching Pokémon details:", err)
+// 		return
+// 	}
+
+// 	fmt.Printf("Name: %s, ID: %d\n", pokemonDetails.Name, pokemonDetails.ID)
+
+// 	// Displaying types
+// 	fmt.Print("Type: ")
+// 	for _, t := range pokemonDetails.Types {
+// 		fmt.Printf("%s ", t.Type.Name)
+// 	}
+// 	fmt.Println()
+
+// 	// Displaying moves (let's limit to first 5 moves for brevity)
+// 	fmt.Print("Moves: ")
+// 	for i, m := range pokemonDetails.Moves {
+// 		if i >= 5 {
+// 			break
+// 		}
+// 		fmt.Printf("%s, ", m.Move.Name)
+// 	}
+// 	fmt.Println()
 
 func cleaned(str string) []string {
 	lower := strings.ToLower(str)
