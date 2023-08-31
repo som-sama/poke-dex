@@ -1,19 +1,79 @@
-# CLI-Based Pokédex README
+# Pokémon CLI Game
 
-Welcome to the CLI-Based Pokédex!
+## Overview
+Welcome to the Pokémon CLI Game, a text-based simulation of a Pokédex where you can explore areas, find and catch Pokémon, and dive deep into the details of each Pokémon.
 
-# Overview
-This tool serves as a command-line interface (CLI) application designed to provide a comprehensive Pokédex experience. It allows users to:
+## Prerequisites
+- Go (Golang) must be installed on your system.
+- Basic knowledge of using the command line.
 
-# Explore the world of Pokémon.
+## Installation
 
-- Capture Pokémon creatures.
-- Retrieve detailed information about individual Pokémon.
+1. Clone the GitHub repository:
+   ```bash
+   git clone [YOUR_REPOSITORY_LINK]
+   ```
+2. Navigate to the directory:
+   ```bash
+   cd [YOUR_REPOSITORY_DIRECTORY_NAME]
+   ```
+3. Compile the Go files to create an executable:
+   ```bash
+   go build main.go
+   ```
+4. Run the game:
+   ```bash
+   ./main
+   ```
 
-# Features
-- Exploration: Use the CLI to navigate through the vast world of Pokémon, discovering various species and their unique traits.
-- Catching Pokémon: This feature enables users to simulate the experience of capturing Pokémon as they venture through the virtual Pokémon world.
-- Pokémon Details: Get in-depth information about each Pokémon, including their types, abilities, and evolutionary paths.
+# How to Play
 
-# Status 
-The project is still under development and will be ready as soon as possible. Also, a star to this project will boost the process :P
+Once you start the game, you'll be presented with a command prompt interface. Here's a breakdown of the available commands:
+
+- **help**: Displays a help message detailing all the available commands.
+- **start**: Enter the Pokedex.
+- **explore**: See areas where Pokémon are available.
+- **explore [area-name]**: View the Pokémon available in that specific area.
+- **[pokemon name]**: Get detailed information about a specific Pokémon.
+- **catch [pokemon name]**: Try to catch the specified Pokémon.
+- **exit**: Exit the Pokedex and end the game.
+
+## Examples
+
+- **To get details about Pikachu:** Type `pikachu` at the prompt.
+- **To explore an area:** Type `explore forest` at the prompt.
+- **To catch a Pokémon:** Type `catch bulbasaur` at the prompt.
+
+## Note: 
+- these are just examples and might not match while playing the game.
+- The game uses the PokeAPI to fetch details about the Pokémon, so ensure you have an active internet connection.
+- Enjoy the game and catch them all!`
+
+## Future Updates
+
+In upcoming versions of the Pokémon CLI Game, we're planning to introduce:
+
+- User login functionality.
+- Integration with a database.
+- Addition of more features to enhance the gameplay.
+
+## Contributions
+
+We welcome contributions to the Pokémon CLI Game! If you have ideas or want to contribute code, please:
+
+1. Fork the repository.
+2. Create a new branch for your features or fixes.
+3. Submit a pull request, and we'll review your changes.
+
+Your contributions will help make this game even better for everyone!
+
+
+
+
+
+
+
+
+
+
+
