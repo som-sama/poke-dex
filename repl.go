@@ -50,6 +50,7 @@ func getPokemonDetails(name string) (*Pokemon, error) {
 }
 
 func startingRepl() {
+	fmt.Println("> Welcome to Pokedex, type help to know more.")
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for {
@@ -65,11 +66,17 @@ func startingRepl() {
 			fmt.Println("Usage: ")
 			fmt.Println()
 			fmt.Println("help: Displays a help message")
-			fmt.Println("type pokemon name to get details about it")
-			fmt.Println("exit or quit: Exit the Pokedex")
+			fmt.Println("type <pokemon name> to get details about it")
+			fmt.Println("type <explore> to see areas where pokemon are available")
+			fmt.Println("type <explore area-name> to see the pokemons available")
+			fmt.Println("type catch to catch the pokemon")
+			fmt.Println("exit: Exit the Pokedex")
 
 		case "exit":
 			os.Exit(0)
+
+		case "explore":
+			random_pokemons()
 
 		default:
 			pokemonDetails, err := getPokemonDetails(text)
