@@ -12,14 +12,16 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
-		fmt.Print(">  ")
+		fmt.Print("> ")
 		text, _ := reader.ReadString('\n')
 		text = text[:len(text)-1]
 
 		switch text {
 		case "explore":
+			fmt.Println("You entered explore zone")
 			random_pokemons()
 		case "start":
+			fmt.Println("You entered the pokedex")
 			startingRepl()
 		case "help":
 			fmt.Println("Welcome to the Pokedex!")

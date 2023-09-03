@@ -71,6 +71,7 @@ func startingRepl() {
 			fmt.Println("type <explore area-name> to see the pokemons available")
 			fmt.Println("type catch to catch the pokemon")
 			fmt.Println("exit: Exit the Pokedex")
+			fmt.Println("Note: always use lower case for pokemon names")
 
 		case "exit":
 			os.Exit(0)

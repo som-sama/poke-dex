@@ -29,7 +29,7 @@ func random_pokemons() {
 			switch {
 			case input == "explore":
 				for _, city := range cities {
-					fmt.Println("> ", city)
+					fmt.Println(">", city)
 				}
 			case strings.HasPrefix(input, "explore "):
 				city := strings.TrimPrefix(input, "explore ")
